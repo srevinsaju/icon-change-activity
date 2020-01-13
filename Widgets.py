@@ -66,7 +66,7 @@ def get_icons(path):
                 not os.path.exists(icon_path):
             continue
         computer_xo_path = os.path.join(path, "sugar", "scalable",
-                                                    "device", "computer-xo.svg")
+                                        "device", "computer-xo.svg")
         same_file = False
         if os.path.exists(computer_xo_path):
             computer_xo = open(computer_xo_path, "r")
@@ -82,8 +82,8 @@ def get_icons(path):
         if 'svg' in mimetype:
             icon_name = icon[:-4]
             if not icon_name in icons \
-            and icon_name != "computer-xo-default" \
-            and not same_file:
+                    and icon_name != "computer-xo-default" \
+                    and not same_file:
                 icons.append(icon_name)
     return icons
 
@@ -92,6 +92,7 @@ class XoHome(Gtk.Fixed):
     '''
     Simulate XO Home with custom icon.
     '''
+
     def __init__(self, icon, activity_path):
         super(XoHome, self).__init__()
 
@@ -100,7 +101,7 @@ class XoHome(Gtk.Fixed):
         angle = 0
         for svg in SUGAR_ICONS:
             image = Icon(icon_name=svg, xo_color=xocolor,
-                pixel_size=style.MEDIUM_ICON_SIZE)
+                         pixel_size=style.MEDIUM_ICON_SIZE)
             x = math.sin(angle) * radius
             y = math.cos(angle) * radius
             x += (Gdk.Screen.width() / 2) - style.LARGE_ICON_SIZE / 2
@@ -147,7 +148,7 @@ class XoIcons(Gtk.Box):
         xocolor = XoColor(color)
         current = get_current_icon()
         if not self.is_default:
-                    icons.append("computer-xo-default")
+            icons.append("computer-xo-default")
 
         for icon_name in icons:
             icon = Icon(icon_name=icon_name, xo_color=xocolor,

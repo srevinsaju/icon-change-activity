@@ -100,12 +100,12 @@ class IconChangeActivity(activity.Activity):
 
         # Copy example icons to ~/.icons
         list_icons = os.listdir(os.path.join(activity.get_bundle_path(),
-                                                    "icons_example"))
+                                             "icons_example"))
         list_icons.sort()
 
         for icon in list_icons:
             icon_path = os.path.join(activity.get_bundle_path(),
-                                                    "icons_example", icon)
+                                     "icons_example", icon)
             icon_path_icon = os.path.join(root_path, icon)
             if not os.path.exists(icon_path_icon):
                 command = ['cp', icon_path, icon_path_icon]
@@ -113,7 +113,7 @@ class IconChangeActivity(activity.Activity):
 
         # Computer-xo -> original
         icon_path = os.path.join(activity.get_bundle_path(), "icons",
-            "computer-xo.svg")
+                                 "computer-xo.svg")
         icon_path_icon = os.path.join(root_path, "computer-xo-default.svg")
 
         command = ['cp', icon_path, icon_path_icon]
@@ -122,9 +122,9 @@ class IconChangeActivity(activity.Activity):
         # Check if icon is = to computer-xo of activity/icons/computer-xo.svg
 
         current_xoicon = os.path.join(root_path, 'sugar', 'scalable',
-                'device', DEFAULT_ICON + '.svg')
+                                      'device', DEFAULT_ICON + '.svg')
         computer_xo = os.path.join(activity.get_bundle_path(), 'icons',
-                DEFAULT_ICON + '.svg')
+                                   DEFAULT_ICON + '.svg')
         is_default = False
         if os.path.exists(current_xoicon):
             xoicon = open(current_xoicon, 'r')
@@ -155,7 +155,7 @@ class IconChangeActivity(activity.Activity):
         to_path = os.path.join(root_path, SUGAR_ICON_PATH,
                                DEFAULT_ICON + '.svg')
         to_path_two = os.path.join(root_path, SUGAR_ICON_PATH,
-                                        CONTROL_PANEL_ICON + ".svg")
+                                   CONTROL_PANEL_ICON + ".svg")
         if icon == DEFAULT_ICON:
             command = ['rm', to_path]
             command_two = ['rm', to_path_two]
