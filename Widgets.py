@@ -27,8 +27,8 @@ import os
 import math
 import mimetypes
 from gi.repository import Gtk
+from gi.repository import Gio
 from gi.repository import Gdk
-from gi.repository import GConf
 from gi.repository import GObject
 
 from sugar3.graphics.icon import Icon
@@ -40,9 +40,8 @@ SUGAR_ICONS = ['activity-web', 'activity-pippy', 'activity-turtleart',
 
 
 def get_current_icon():
-    client = GConf.Client.get_default()
-    path = '/desktop/sugar/user/icon'
-    value = client.get_string(path)
+    settings = Gio.Settings('org.sugarlabs.user')
+    value = settings.get_string('icon')
     if value:
         return value
     else:
@@ -142,9 +141,8 @@ class XoIcons(Gtk.Box):
 
     def fill_list(self, icons):
 
-        client = GConf.Client.get_default()
-        path = '/desktop/sugar/user/color'
-        color = client.get_string(path)
+        settings = Gio.Settings('org.sugarlabs.user')
+        color = settings.get_string('color')
         global xocolor
         xocolor = XoColor(color)
         current = get_current_icon()
