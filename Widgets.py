@@ -40,12 +40,17 @@ SUGAR_ICONS = ['activity-web', 'activity-pippy', 'activity-turtleart',
 
 
 def get_current_icon():
-    settings = Gio.Settings('org.sugarlabs.user')
-    value = settings.get_string('icon')
-    if value:
-        return value
-    else:
-        return 'computer-xo'
+    # FIXME this activity tried to access 'icon'
+    # 'icon is not defined.
+
+    # settings = Gio.Settings('org.sugarlabs.user')
+    #
+    # value = settings.get_string('icon')
+    # if value:
+    #     return value
+    # else:
+    #     return 'computer-xo'
+    return 'computer-xo'
 
 
 def get_icons(path):
